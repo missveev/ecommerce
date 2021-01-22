@@ -1,0 +1,14 @@
+#services{
+    background: #ffff;
+    padding-bottom: 60px;
+    overflow: hidden;
+}
+#services .service-list{
+    display: flex;
+    flex-wrap: wrap;
+    width: 96%;
+    max-width: 1020px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}

@@ -1,0 +1,11 @@
+#footer{
+    background-color: #184d47;
+}
+#footer .footer-list{
+    display: flex;
+    flex-wrap: wrap;
+    width: 96%;
+    max-width: 1020px;
+    margin: 0 auto;
+    position: relative;
+}

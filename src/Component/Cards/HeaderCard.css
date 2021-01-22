@@ -1,0 +1,23 @@
+#deals .banner{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: 190px;
+}
+#grab {
+    background: #d6efc7;
+    padding-bottom: 60px;
+    overflow: hidden;
+}
+#grab .cardlist{
+    display: flex;
+    flex-wrap: wrap;
+    width: 96%;
+    max-width: 1020px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+#grab .item-wrap{
+    padding-bottom: 20px;
+}

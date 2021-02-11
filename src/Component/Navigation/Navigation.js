@@ -1,63 +1,57 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import {Link} from 'react-router-dom';
-import {
-    MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
-} from "mdbreact";
-import { BrowserRouter as Router } from 'react-router-dom';
-class Navigation extends Component {
-    state = {
-        isOpen: false
-    };
+import {connect} from 'react-redux';
+import CartIcon from "../cart-icon/cart-icon";
+import CartDropdown from "../cart-dropdown/cart-dropdown";
+import {auth} from "../../Firebase/firebase.utils";
 
-    toggleCollapse = () => {
-        this.setState({ isOpen: !this.state.isOpen });
-    }
+const Navigation = ({currentUser,hidden}) => (
 
-    render() {
-        return (
-            <Router>
-                <section id='header'>
-                <MDBNavbar color="green" dark expand="md">
-                    <MDBNavbarBrand>
-                        <Link to ="/" ><strong className="white-text">STALEG MALL</strong></Link>
-                    </MDBNavbarBrand>
-                    <MDBNavbarToggler onClick={this.toggleCollapse} />
-                    <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
-                        <MDBNavbarNav right>
-                            <MDBNavItem active>
-                                <MDBNavLink to="/">Home</MDBNavLink>
-                            </MDBNavItem>
-                            <MDBNavItem>
-                                <MDBNavLink to="/shop">Shop</MDBNavLink>
-                            </MDBNavItem>
-                            <MDBNavItem>
-                                <MDBNavLink to="/about">About</MDBNavLink>
-                            </MDBNavItem>
-                            <MDBNavItem>
-                                <MDBNavLink to="/contact">Contact</MDBNavLink>
-                            </MDBNavItem>
-                            <MDBNavItem>
-                                <MDBFormInline waves>
-                                    <div className="md-form my-0">
-                                        <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-                                    </div>
-                                </MDBFormInline>
-                            </MDBNavItem>
-                            <MDBNavItem>
-                                <MDBNavLink className="waves-effect waves-light" to="#!">
-                                    <i className="fab fa-opencart"></i>
-                                </MDBNavLink>
-                            </MDBNavItem>
-                            <MDBNavItem>
-                                <MDBNavLink to="#!">SignIn</MDBNavLink>
-                            </MDBNavItem>
-                        </MDBNavbarNav>
-                    </MDBCollapse>
-                </MDBNavbar>
-                </section>
-            </Router>
-        );
-    }
-}
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+            <Link className='navbar-brand' to="/">
+                STALEGMALL
+            </Link>
+            <button
+                className="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <i className="fas fa-bars"/>
+            </button>
 
-export default Navigation;
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
+                    <li className="nav-item">
+                        <Link className='nav-link' to='/shop'>SHOP</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className='nav-link' to='/shop'>CONTACT</Link>
+                    </li>
+
+                    <li className="nav-item">
+                        {
+                            currentUser ?
+                                <Link className='nav-link' onClick={() => auth.signOut()} to='#'>SIGN OUT</Link>
+                                :
+                                <Link className='nav-link' to='/signin'>SIGN IN</Link>
+                        }
+                    </li>
+                    <li className="nav-item">
+                        <CartIcon/>
+                    </li>
+                </ul>
+                {hidden ? null: <CartDropdown/>}
+            </div>
+        </div>
+    </nav>
+);
+const mapStateToProps = ({user: {currentUser}, cart:{hidden}})=> ({
+    currentUser,
+    hidden
+});
+export default  connect(mapStateToProps)(Navigation);

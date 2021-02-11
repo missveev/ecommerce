@@ -26,7 +26,7 @@ render() {
                     {
                         collections.map(({id,caption,image}) =>(
 
-                    <MDBCarouselItem itemId={id}>
+                    <MDBCarouselItem key={id} itemId={id}>
                         <MDBView>
                             <img
                                 className="d-block w-100"

@@ -5,18 +5,16 @@
     margin-left: 190px;
 }
 #grab {
-    background: #d6efc7;
+    background:#e8eae6;
     padding-bottom: 60px;
     overflow: hidden;
 }
 #grab .cardlist{
     display: flex;
-    flex-wrap: wrap;
-    width: 96%;
-    max-width: 1020px;
-    margin: 0 auto;
-    overflow: hidden;
-    position: relative;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    padding-left: 150px;
+    padding-right: 150px;
 }
 #grab .item-wrap{
     padding-bottom: 20px;

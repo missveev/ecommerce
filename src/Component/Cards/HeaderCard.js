@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {addItem} from "../../redux/cart/cart.actions";
-import {MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardFooter, MDBTooltip} from 'mdbreact';
+import {MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardFooter, MDBTooltip, MDBContainer} from 'mdbreact';
 import './HeaderCard.css';
 import SALES_DATA from "./SalesProductData";
 
@@ -15,7 +15,8 @@ const HeaderCard = ({addItem}) => {
     return (
         <section id="deals" className='text-center my-5'>
             <h2 className='h1-responsive font-weight-bold text-center my-5'>WEEKLY DEALS</h2>
-            <div className="row banner">
+            <MDBContainer>
+
                 {
                     collections.map(({id, productName, image, Price}) => (
                         <MDBCol md='2' key={id}>
@@ -53,7 +54,7 @@ const HeaderCard = ({addItem}) => {
                             </MDBCard>
                         </MDBCol>
                     ))}
-            </div>
+            </MDBContainer>
         </section>
     );
 }

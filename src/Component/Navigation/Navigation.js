@@ -16,16 +16,16 @@ const Navigation = ({currentUser,hidden}) => (
                 className="navbar-toggler"
                 type="button"
                 data-mdb-toggle="collapse"
-                data-mdb-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
+                data-mdb-target="#navbarNav"
+                aria-controls="navbarNav"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
             >
                 <i className="fas fa-bars"/>
             </button>
 
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
+            <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav">
                     <li className="nav-item">
                         <Link className='nav-link' to='/shop'>SHOP</Link>
                     </li>

@@ -34,6 +34,12 @@ const SALES_DATA= [
         productName: 'Tomatoes',
         image: tomatoes,
         Price: '800'
+    },
+    {
+        id: 6,
+        productName: 'Blueberries',
+        image: tomatoes,
+        Price: '800'
     }
 ];
 export default SALES_DATA;

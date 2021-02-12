@@ -5,10 +5,12 @@ import {addItem} from "../../redux/cart/cart.actions";
 const CollectionItem = ({item, addItem}) => {
     const {name, price, imageUrl} = item;
     return(
+
     <div className="banner">
         <MDBCol style={{ width: "18rem"}} >
             <MDBCard>
                 <img
+
                     src={imageUrl}
                     alt='product photo'
                     height={200}

@@ -1,16 +1,17 @@
- .banner {
-   display: flex;
-   flex-wrap: wrap;
+.banner {
+  display: flex;
+  flex-wrap: wrap;
 
-   .image {
-     width: 100%;
-     height: 95%;
-     background-size: cover;
-     background-position: center;
-     margin-bottom: 5px;
-   }
+  .image {
+    width: 100%;
+    height: 95%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 5px;
+  }
 
-   .img {
-     height: 100px;
-   }
- }
+  .img {
+    height: 100px;
+  }
+}
+
